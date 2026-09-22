@@ -118,7 +118,12 @@ export function getAllPrices(): Promise<RawNswPricesResponse> {
   return nswApiFetch<RawNswPricesResponse>('/prices');
 }
 
-/** Fuel type codes/names and brand list. Changes rarely, cached for hours. */
+/** Fuel type codes/names and brand list. Changes rarely, cached for hours.
+ * The API 500s without an `if-modified-since` header even though the docs
+ * describe it as optional — send a far-past date so we always get the full
+ * list rather than an empty "nothing changed" response. */
 export function getReferenceData(): Promise<RawNswReferenceData> {
-  return nswApiFetch<RawNswReferenceData>('/lovs');
+  return nswApiFetch<RawNswReferenceData>('/lovs', {
+    headers: { 'if-modified-since': '01/01/2010 00:00:00' },
+  });
 }
