@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-ink-50 text-ink-900 antialiased;
+    font-feature-settings: 'cv11', 'ss01';
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-brand-500 ring-offset-2 ring-offset-ink-50;
+  }
+
+  ::selection {
+    @apply bg-brand-200 text-brand-950;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .skeleton {
+    @apply bg-ink-100 bg-[length:400px_100%] animate-shimmer;
+    background-image: linear-gradient(
+      90deg,
+      theme('colors.ink.100') 0%,
+      theme('colors.ink.200') 40%,
+      theme('colors.ink.100') 80%
+    );
+  }
+}
+
+.maplibregl-popup-content {
+  @apply rounded-xl p-0 shadow-card overflow-hidden;
+}
+.maplibregl-popup-close-button {
+  @apply text-lg pr-2 pt-1 text-ink-500;
+}
