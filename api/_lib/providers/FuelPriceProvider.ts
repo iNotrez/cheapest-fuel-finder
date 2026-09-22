@@ -16,6 +16,6 @@ export interface FuelPriceProviderQuery {
  */
 export interface FuelPriceProvider {
   readonly id: string;
-  readonly states: AustralianState[];
+  readonly states: readonly AustralianState[];
   getPricesNearby(query: FuelPriceProviderQuery): Promise<FuelPricesResult>;
 }
