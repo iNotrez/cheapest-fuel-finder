@@ -13,6 +13,7 @@ export function ErrorState({
     <motion.div
       initial={{ opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0 }}
       className="mx-auto flex max-w-sm flex-col items-center gap-3 rounded-2xl border border-red-100 bg-red-50/60 p-6 text-center"
       role="alert"
     >

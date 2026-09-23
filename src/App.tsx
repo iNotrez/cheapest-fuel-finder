@@ -108,13 +108,13 @@ export default function App() {
       />
 
       <main className="mx-auto max-w-6xl px-4 sm:px-6">
-        <AnimatePresence mode="wait">
+        <AnimatePresence initial={false}>
           {!geo.location && (geo.status === 'idle' || geo.status === 'requesting') && (
             <LoadingState key="loc" message="📍 Finding your location…" />
           )}
 
           {!geo.location && (geo.status === 'denied' || geo.status === 'unavailable') && (
-            <motion.div key="denied" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+            <motion.div key="denied" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
               <EmptyState
                 title="We couldn't access your location"
                 message="Search for an address, suburb or postcode above to find fuel near you instead."
@@ -123,14 +123,14 @@ export default function App() {
           )}
 
           {geo.location && fuelStations.status === 'loading' && !fuelStations.data && (
-            <div key="loading-fuel">
+            <motion.div key="loading-fuel" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
               <LoadingState message="⛽ Finding nearby fuel…" />
               <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <div key={i} className="skeleton h-24 rounded-2xl" />
                 ))}
               </div>
-            </div>
+            </motion.div>
           )}
 
           {geo.location && fuelStations.status === 'error' && (
@@ -143,7 +143,13 @@ export default function App() {
           )}
 
           {geo.location && fuelStations.status === 'success' && fuelStations.data && (
-            <motion.div key="content" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex flex-col gap-6 py-4">
+            <motion.div
+              key="content"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="flex flex-col gap-6 py-4"
+            >
               {fuelStations.data.stale && (
                 <p className="rounded-xl bg-amber-50 px-3 py-2 text-xs font-medium text-amber-700">
                   Showing the last prices we could fetch — live data is temporarily unavailable.
