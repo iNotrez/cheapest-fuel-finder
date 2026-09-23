@@ -1,4 +1,4 @@
-import type { AustralianState, FuelPricesResult } from '../../../shared/types';
+import type { AustralianState, FuelPricesResult } from '../../../shared/types.js';
 
 export interface FuelPriceProviderQuery {
   latitude: number;

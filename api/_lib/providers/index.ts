@@ -1,6 +1,6 @@
-import type { AustralianState } from '../../../shared/types';
-import type { FuelPriceProvider } from './FuelPriceProvider';
-import { NSWFuelProvider } from './NSWFuelProvider';
+import type { AustralianState } from '../../../shared/types.js';
+import type { FuelPriceProvider } from './FuelPriceProvider.js';
+import { NSWFuelProvider } from './NSWFuelProvider.js';
 
 /**
  * Registry of every FuelPriceProvider the app knows about. To add a new

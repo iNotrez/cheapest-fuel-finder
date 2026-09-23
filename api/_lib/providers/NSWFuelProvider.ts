@@ -1,9 +1,9 @@
-import type { FuelPricesResult, FuelType, Station } from '../../../shared/types';
-import { haversineDistanceKm } from '../../../shared/geo';
-import { cachedFetch } from '../cache';
-import type { FuelPriceProvider, FuelPriceProviderQuery } from './FuelPriceProvider';
-import { getAllPrices, getReferenceData } from './nswFuelClient';
-import { normalizeFuelTypes, normalizeStation } from './normalize';
+import type { FuelPricesResult, FuelType, Station } from '../../../shared/types.js';
+import { haversineDistanceKm } from '../../../shared/geo.js';
+import { cachedFetch } from '../cache.js';
+import type { FuelPriceProvider, FuelPriceProviderQuery } from './FuelPriceProvider.js';
+import { getAllPrices, getReferenceData } from './nswFuelClient.js';
+import { normalizeFuelTypes, normalizeStation } from './normalize.js';
 
 // NSW retailers are required to update FuelCheck within a short window of
 // any price change; refreshing our cache every 15 minutes keeps us well

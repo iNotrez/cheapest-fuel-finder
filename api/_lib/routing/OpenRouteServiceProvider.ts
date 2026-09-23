@@ -1,6 +1,6 @@
-import type { RouteDistanceResult } from '../../../shared/types';
-import { haversineDistanceKm } from '../../../shared/geo';
-import type { RoutingProvider, RoutingQuery } from './RoutingProvider';
+import type { RouteDistanceResult } from '../../../shared/types.js';
+import { haversineDistanceKm } from '../../../shared/geo.js';
+import type { RoutingProvider, RoutingQuery } from './RoutingProvider.js';
 
 const MATRIX_URL = 'https://api.openrouteservice.org/v2/matrix/driving-car';
 

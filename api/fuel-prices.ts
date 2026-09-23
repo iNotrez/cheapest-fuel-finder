@@ -1,7 +1,7 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { getProviderForState } from './_lib/providers';
-import { sendError, sendJson, withErrorHandling, parseNumber } from './_lib/http';
-import type { AustralianState } from '../shared/types';
+import { getProviderForState } from './_lib/providers/index.js';
+import { sendError, sendJson, withErrorHandling, parseNumber } from './_lib/http.js';
+import type { AustralianState } from '../shared/types.js';
 
 const MAX_RADIUS_KM = 50;
 

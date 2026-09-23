@@ -1,8 +1,8 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { OpenRouteServiceProvider } from './_lib/routing/OpenRouteServiceProvider';
-import { sendError, sendJson, withErrorHandling } from './_lib/http';
-import { haversineDistanceKm } from '../shared/geo';
-import type { RouteDistanceResult, RouteMatrixResponse, RouteDistanceRequest } from '../shared/types';
+import { OpenRouteServiceProvider } from './_lib/routing/OpenRouteServiceProvider.js';
+import { sendError, sendJson, withErrorHandling } from './_lib/http.js';
+import { haversineDistanceKm } from '../shared/geo.js';
+import type { RouteDistanceResult, RouteMatrixResponse, RouteDistanceRequest } from '../shared/types.js';
 
 const routingProvider = new OpenRouteServiceProvider();
 

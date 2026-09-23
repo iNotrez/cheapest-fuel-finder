@@ -1,6 +1,6 @@
-import type { FuelPrice, FuelType, Station } from '../../../shared/types';
-import { parseNswTimestamp } from '../time';
-import type { RawNswFuelType, RawNswPrice, RawNswStation } from './nswFuelClient';
+import type { FuelPrice, FuelType, Station } from '../../../shared/types.js';
+import { parseNswTimestamp } from '../time.js';
+import type { RawNswFuelType, RawNswPrice, RawNswStation } from './nswFuelClient.js';
 
 // Matches "... SUBURB NAME NSW 2000" at the end of a free-text address.
 const SUBURB_STATE_POSTCODE = /,?\s*([A-Za-z' -]+?)\s+NSW\s+(\d{4})\s*$/i;

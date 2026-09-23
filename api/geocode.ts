@@ -1,7 +1,7 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { sendError, sendJson, withErrorHandling } from './_lib/http';
-import { cachedFetch } from './_lib/cache';
-import type { GeocodeResult } from '../shared/types';
+import { sendError, sendJson, withErrorHandling } from './_lib/http.js';
+import { cachedFetch } from './_lib/cache.js';
+import type { GeocodeResult } from '../shared/types.js';
 
 const NOMINATIM_URL = 'https://nominatim.openstreetmap.org/search';
 const GEOCODE_TTL_MS = 24 * 60 * 60 * 1000;

@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import type { ApiErrorBody } from '../../shared/types';
+import type { ApiErrorBody } from '../../shared/types.js';
 
 export function sendJson(res: VercelResponse, status: number, body: unknown): void {
   res.status(status).setHeader('Content-Type', 'application/json').send(JSON.stringify(body));

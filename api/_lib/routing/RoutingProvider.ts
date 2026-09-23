@@ -1,4 +1,4 @@
-import type { RouteDistanceResult } from '../../../shared/types';
+import type { RouteDistanceResult } from '../../../shared/types.js';
 
 export interface RoutingQuery {
   origin: { latitude: number; longitude: number };
